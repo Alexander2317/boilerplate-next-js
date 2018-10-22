@@ -1,0 +1,28 @@
+{
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "node": "current"
+        }
+      }
+    ],
+    [
+      "next/babel",
+      {
+        "preset-env": {
+          "modules": "commonjs"
+        }
+      }
+    ]
+  ],
+  "plugins": [
+    "transform-flow-strip-types",
+    [
+      "module-resolver",
+      { "root": ["./"] }
+    ]
+  ],
+  "ignore": ["node_modules", ".next"]
+}
