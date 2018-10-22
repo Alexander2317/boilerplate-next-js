@@ -1,24 +1,24 @@
 import React, { Component } from 'react';
 import Head from 'next/head';
-import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import NProgress from 'components/NProgress';
-import s from '../components/index.css';
+import { test } from 'redux/actions/test';
 
-class PostsIndex extends Component {
+class Home extends Component {
+  static async getInitialProps({ store }) {
+    store.dispatch(test());
+  }
   render() {
     return (
       <div>
         <Head>
-          <title>Posts Index</title>
+          <title>Home Index</title>
         </Head>
         <NProgress />
-        Post
-        <div className={s.example}>sd</div>
+        Test
       </div>
     );
   }
 }
 
-PostsIndex.propTypes = {};
-
-export default PostsIndex;
+export default connect(state => state)(Home);

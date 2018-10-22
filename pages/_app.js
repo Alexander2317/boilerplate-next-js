@@ -1,7 +1,12 @@
-import React from 'react';
 import App, { Container } from 'next/app';
+import React from 'react';
+import { Provider } from 'react-redux';
+import withRedux from 'next-redux-wrapper';
+import withReduxSaga from 'next-redux-saga';
 
-export default class MyApp extends App {
+import makeStore from 'redux/store/configureStore';
+
+class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
     let pageProps = {};
 
@@ -46,12 +51,16 @@ export default class MyApp extends App {
   };
 
   render() {
-    const { Component, pageProps, router } = this.props;
+    const { Component, pageProps, router, store } = this.props;
     const url = this.createUrl(router);
     return (
       <Container>
-        <Component {...pageProps} url={url} />
+        <Provider store={store}>
+          <Component {...pageProps} url={url} />
+        </Provider>
       </Container>
     );
   }
 }
+
+export default withRedux(makeStore)(withReduxSaga({ async: true })(MyApp));

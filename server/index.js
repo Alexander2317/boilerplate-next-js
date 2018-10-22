@@ -1,8 +1,8 @@
 import next from 'next';
+import express from 'express';
 import cookiesMiddleware from 'universal-cookie-express';
 import compression from 'compression';
 import routes from '../routes';
-import express from 'express';
 
 const app = next({ dev: process.env.NODE_ENV !== 'production' });
 const handler = routes.getRequestHandler(app);
