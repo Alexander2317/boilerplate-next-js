@@ -1,21 +1,34 @@
-FROM node:8.10.0-alpine
+FROM node:10.6.0
 
-# Set a working directory
-WORKDIR /usr/src/app
+# Set var build dir
+ENV BUILD_DIR=/usr/src/app
 
-COPY ./build/package.json .
-COPY ./build/yarn.lock .
+# Set var work dir
+ENV WORK_DIR=/usr/src/app
 
-# Install Node.js dependencies
-RUN yarn install --production --no-progress
+# Set a building directory
+WORKDIR ${BUILD_DIR}
 
-# Copy application files
-COPY ./build .
+# copy all project to image
+COPY . .
 
-# Run the container under "node" user by default
+# add user node in group www-data
+RUN usermod -aG www-data node
+
+# Set permison on
+RUN chown -R node:www-data ${BUILD_DIR}
+
+# run all proc as not root
 USER node
 
-# Set NODE_ENV env variable to "production" for faster expressjs
-ENV NODE_ENV production
+# Install Node.js dependencies
+RUN yarn config set ignore-engines true && yarn install && yarn build
 
-CMD [ "node", "server.js" ]
+# Set a working directory
+WORKDIR ${WORK_DIR}
+
+# Set permison on
+RUN chown -R node:www-data ${WORK_DIR}
+
+# Run App
+CMD ["yarn", "start"]

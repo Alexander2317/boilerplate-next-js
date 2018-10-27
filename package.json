@@ -1,6 +1,6 @@
 {
-  "name": "next-boilerplate",
-  "version": "1.1.0",
+  "name": "boilerplate Next.js",
+  "version": "1.1.1",
   "license": "MIT",
   "scripts": {
     "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
@@ -12,8 +12,12 @@
     "test": "jest",
     "dev": "babel-node server",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production babel-node server",
-    "precommit": "lint-staged"
+    "start": "cross-env NODE_ENV=production babel-node server"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "yarn fix"
+    }
   },
   "browserslist": [
     ">1%",
@@ -90,7 +94,7 @@
     "eslint-plugin-prettier": "^3.0.0",
     "eslint-plugin-react": "^7.9.1",
     "flow-bin": "^0.74.0",
-    "husky": "^0.14.3",
+    "husky": "^1.1.2",
     "jest": "^23.6.0",
     "lint-staged": "^7.2.0",
     "pixrem": "^4.0.1",
