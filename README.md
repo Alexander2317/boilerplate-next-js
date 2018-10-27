@@ -13,3 +13,4 @@
 * **prettier** and **eslint** configured with **airbnb**'s styleguide for formating code
 * **husky** and **lint-staged** for autoformatting code before commit
 * **jest** for testing code
+* **next-seo** for seo on pages
