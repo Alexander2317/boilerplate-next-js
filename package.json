@@ -1,24 +1,8 @@
 {
-  "name": "boilerplate Next.js",
-  "version": "1.1.1",
+  "name": "boilerplate-next-js",
+  "version": "1.1.0",
+  "description": "",
   "license": "MIT",
-  "scripts": {
-    "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
-    "lint-css": "stylelint \"components/**/*.{css,less,styl,scss,sass,sss}\"",
-    "lint": "yarn lint-js && yarn lint-css",
-    "fix-js": "yarn lint-js --fix",
-    "fix-css": "yarn lint-css --fix",
-    "fix": "yarn fix-js && yarn fix-css",
-    "test": "jest",
-    "dev": "babel-node server",
-    "build": "next build",
-    "start": "cross-env NODE_ENV=production babel-node server"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "yarn fix"
-    }
-  },
   "browserslist": [
     ">1%",
     "last 10 versions",
@@ -121,5 +105,18 @@
     "stylelint-config-standard": "^18.2.0",
     "stylelint-order": "^0.8.1",
     "webpack-bundle-analyzer": "^2.13.1"
+  },
+  "scripts": {
+    "lint-js": "eslint --ignore-path .gitignore --ignore-pattern \"!**/.*\" .",
+    "lint-css": "stylelint \"components/**/*.{css,less,styl,scss,sass,sss}\"",
+    "lint": "yarn lint-js && yarn lint-css",
+    "fix-js": "yarn lint-js --fix",
+    "fix-css": "yarn lint-css --fix",
+    "fix": "yarn fix-js && yarn fix-css",
+    "test": "jest",
+    "dev": "babel-node server",
+    "build": "next build",
+    "start": "cross-env NODE_ENV=production babel-node server",
+    "precommit": "lint-staged"
   }
 }
