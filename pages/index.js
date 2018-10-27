@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import Head from 'next/head';
+import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 import NProgress from 'components/NProgress';
 import { test } from 'redux/actions/test';
@@ -10,13 +9,10 @@ class Home extends Component {
   }
   render() {
     return (
-      <div>
-        <Head>
-          <title>Home Index</title>
-        </Head>
+      <Fragment>
         <NProgress />
         Test
-      </div>
+      </Fragment>
     );
   }
 }
