@@ -1,5 +1,6 @@
 ## Features
 * **React 16.8.1**
+* **Next.js 8.0.0-canary.19**
 * **redux** for handling application state
 * **redux-saga** for handling async actions and side-effects
 * **next-routes** for handling dynamic routes
