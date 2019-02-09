@@ -13,9 +13,10 @@ export default class Error extends Component {
   }
 
   render() {
+    const { statusCode } = this.props;
     return (
       <section className={s.container}>
-        {this.props.statusCode ? <Error404 /> : <Error500 />}
+        {statusCode ? <Error404 /> : <Error500 />}
       </section>
     );
   }

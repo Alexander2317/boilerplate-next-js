@@ -2,7 +2,6 @@ import App, { Container } from 'next/app';
 import React from 'react';
 import NextSeo from 'next-seo';
 import { Provider } from 'react-redux';
-import withReduxSaga from 'next-redux-saga';
 import SEO from 'seo/next-seo.config';
 import store from 'redux/store';
 
@@ -63,4 +62,4 @@ class MyApp extends App {
   }
 }
 
-export default withReduxSaga({ async: true })(MyApp);
+export default MyApp;

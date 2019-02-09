@@ -5,20 +5,19 @@ import Layout from 'components/Layout';
 
 class Home extends Component {
   static propTypes = {
-    count: PropTypes.number,
+    version: PropTypes.number,
   };
 
   static defaultProps = {
-    count: 0,
+    version: 0,
   };
 
   render() {
-    const { count } = this.props;
-    return <Layout>Test {count}</Layout>;
+    const { version } = this.props;
+    return <Layout>Boilerplate {version}</Layout>;
   }
 }
 
 export default connect(state => ({
-  count: state.test.count,
-  state,
+  version: state.test.version,
 }))(Home);

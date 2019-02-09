@@ -12,7 +12,7 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--grayDF);
+  background: color(red a(90%));
   border-radius: 4px;
 }
 
@@ -22,12 +22,9 @@ body {
 }
 
 body {
-  font-family: var(--fontMain);
+  font-family: Arial, sans-serif;
   font-weight: 400;
-}
-
-body > div {
-  height: 100vh;
+  background: color(#29d w(80%));
 }
 
 .wrapper {
@@ -38,10 +35,21 @@ body > div {
 
 .content {
   flex: 1 0 auto;
+  font-size: 18px;
+  text-align: center;
 }
 
-.flexContainer {
-  height: 100%;
-  display: flex;
-  flex-flow: row nowrap;
+.header,
+.footer {
+  font-size: 24px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.header {
+  margin-bottom: 20px;
+}
+
+.footer {
+  flex: 0 0 auto;
 }

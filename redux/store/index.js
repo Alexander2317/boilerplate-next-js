@@ -6,19 +6,14 @@ import { rootSaga as saga } from '../sagas';
 import reducers from '../reducers';
 
 const sagaMiddleware = createSagaMiddleware();
-
 const loggerMiddleware = createLogger({
   predicate: () => process.env.NODE_ENV === 'development',
 });
-
 const store = createStore(
   reducers,
   composeWithDevTools(applyMiddleware(sagaMiddleware, loggerMiddleware)),
 );
 
-store.runSagaTask = () => {
-  store.sagaTask = sagaMiddleware.run(saga);
-};
-store.runSagaTask();
+sagaMiddleware.run(saga);
 
 export default store;

@@ -4,7 +4,7 @@ import { TEST } from '../constants';
 export function* init() {
   yield put({
     type: TEST,
-    payload: { count: 1 },
+    payload: { version: 3 },
   });
 }
 
