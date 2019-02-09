@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--grayDF);
+  border-radius: 4px;
+}
+
+html,
+body {
+  height: 100vh;
+}
+
+body {
+  font-family: var(--fontMain);
+  font-weight: 400;
+}
+
+body > div {
+  height: 100vh;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.content {
+  flex: 1 0 auto;
+}
+
+.flexContainer {
+  height: 100%;
+  display: flex;
+  flex-flow: row nowrap;
+}

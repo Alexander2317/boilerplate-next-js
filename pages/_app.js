@@ -2,11 +2,9 @@ import App, { Container } from 'next/app';
 import React from 'react';
 import NextSeo from 'next-seo';
 import { Provider } from 'react-redux';
-import withRedux from 'next-redux-wrapper';
 import withReduxSaga from 'next-redux-saga';
-
 import SEO from 'seo/next-seo.config';
-import makeStore from 'redux/store/configureStore';
+import store from 'redux/store';
 
 class MyApp extends App {
   static async getInitialProps({ Component, ctx }) {
@@ -20,7 +18,6 @@ class MyApp extends App {
   }
 
   createUrl = router => {
-    // This is to make sure we don't references the router object at call time
     const { pathname, asPath, query } = router;
     return {
       get query() {
@@ -53,10 +50,10 @@ class MyApp extends App {
   };
 
   render() {
-    const { Component, pageProps, router, store } = this.props;
+    const { Component, pageProps, router } = this.props;
     const url = this.createUrl(router);
     return (
-      <Container>
+      <Container style={{ height: '100vh' }}>
         <NextSeo config={SEO} />
         <Provider store={store}>
           <Component {...pageProps} url={url} />
@@ -66,4 +63,4 @@ class MyApp extends App {
   }
 }
 
-export default withRedux(makeStore)(withReduxSaga({ async: true })(MyApp));
+export default withReduxSaga({ async: true })(MyApp);

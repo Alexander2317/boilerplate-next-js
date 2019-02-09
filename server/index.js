@@ -9,6 +9,7 @@ const handler = routes.getRequestHandler(app);
 
 app.prepare().then(() => {
   express()
+    .use(express.static('static'))
     .use(cookiesMiddleware())
     .use(compression())
     .use(handler)

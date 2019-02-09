@@ -1,5 +1,12 @@
 {
     "parser": "babel-eslint",
+    "parserOptions": {
+      "ecmaVersion": 6,
+      "sourceType": "module",
+      "ecmaFeatures": {
+        "jsx": true
+      }
+    },
     "extends": [
         "airbnb",
         "plugin:flowtype/recommended",
@@ -21,6 +28,8 @@
         }
     },
     "rules": {
+        "css-modules/no-unused-class": [0, { "camelCase": true }],
+        "css-modules/no-undef-class": [0, { "camelCase": true }],
         "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
         "no-console": ["error", {"allow": ["warn", "error", "info"]}],
         "prefer-destructuring": [

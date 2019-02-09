@@ -1,8 +1,0 @@
-:root {
-    --color: #ccc;
-}
-
-.example {
-    display: flex;
-    color: var(--color);
-}

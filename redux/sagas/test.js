@@ -1,12 +1,13 @@
 import { put, spawn } from 'redux-saga/effects';
 import { TEST } from '../constants';
 
-export const init = function*() {
+export function* init() {
   yield put({
     type: TEST,
+    payload: { count: 1 },
   });
-};
+}
 
-export const saga = function*() {
+export function* saga() {
   yield spawn(init);
-};
+}

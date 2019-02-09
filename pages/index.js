@@ -1,20 +1,24 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import NProgress from 'components/NProgress';
-import { test } from 'redux/actions/test';
+import Layout from 'components/Layout';
 
 class Home extends Component {
-  static async getInitialProps({ store }) {
-    store.dispatch(test());
-  }
+  static propTypes = {
+    count: PropTypes.number,
+  };
+
+  static defaultProps = {
+    count: 0,
+  };
+
   render() {
-    return (
-      <Fragment>
-        <NProgress />
-        Test
-      </Fragment>
-    );
+    const { count } = this.props;
+    return <Layout>Test {count}</Layout>;
   }
 }
 
-export default connect(state => state)(Home);
+export default connect(state => ({
+  count: state.test.count,
+  state,
+}))(Home);

@@ -1,5 +1,16 @@
-/* eslint-disable import/prefer-default-export */
+import { Record } from 'immutable';
+import { TEST } from 'redux/constants';
 
-export default function test(state = ['1'], action) {
-  return state;
+const ReducerRecord = Record({
+  count: 0,
+});
+
+export default function test(state = new ReducerRecord(), action) {
+  const { type, payload } = action;
+  switch (type) {
+    case TEST:
+      return state.set('count', payload.count);
+    default:
+      return state;
+  }
 }

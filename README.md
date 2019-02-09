@@ -1,4 +1,5 @@
 ## Features
+* **React 16.8.1**
 * **redux** for handling application state
 * **redux-saga** for handling async actions and side-effects
 * **next-routes** for handling dynamic routes
