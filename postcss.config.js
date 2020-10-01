@@ -1,26 +1,32 @@
-/* eslint-disable global-require */
-
-const pkg = require('./package.json');
-
-module.exports = () => ({
+module.exports = {
   plugins: [
-    require('postcss-import')(),
-    require('postcss-custom-properties')(),
-    require('postcss-custom-media')(),
-    require('postcss-media-minmax')(),
-    require('postcss-custom-selectors')(),
-    require('postcss-calc')(),
-    require('postcss-nesting')(),
-    require('postcss-nested')(),
-    require('postcss-color-function')(),
-    require('pleeease-filters')(),
-    require('pixrem')(),
-    require('postcss-selector-matches')(),
-    require('postcss-selector-not')(),
-    require('postcss-flexbugs-fixes')(),
-    require('autoprefixer')({
-      browsers: pkg.browserslist,
-      flexbox: 'no-2009',
-    }),
+    'postcss-import',
+    'postcss-custom-properties',
+    'postcss-custom-media',
+    'postcss-media-minmax',
+    'postcss-custom-selectors',
+    'postcss-calc',
+    'postcss-nesting',
+    'postcss-nested',
+    'postcss-color-function',
+    'pleeease-filters',
+    'postcss-selector-matches',
+    'postcss-selector-not',
+    'postcss-flexbugs-fixes',
+    'postcss-simple-vars',
+    'postcss-mixins',
+    [
+      'postcss-preset-env',
+      {
+        autoprefixer: {
+          flexbox: 'no-2009',
+          grid: 'autoplace',
+        },
+        stage: 3,
+        features: {
+          'custom-properties': false,
+        },
+      },
+    ],
   ],
-});
+}

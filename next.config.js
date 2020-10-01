@@ -1,21 +1,10 @@
-const webpack = require('webpack');
-const { parsed: localEnv } = require('dotenv').config();
-const withSourceMaps = require('@zeit/next-source-maps');
-const withImages = require('next-images');
-const withPlugins = require('next-compose-plugins');
-const withCss = require('@zeit/next-css');
-const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
+const webpack = require('webpack')
+const { parsed: localEnv } = require('dotenv').config()
+const withSourceMaps = require('@zeit/next-source-maps')
+const withImages = require('next-images')
+const withPlugins = require('next-compose-plugins')
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
 
-const rules = [
-  {
-    loader: 'postcss-loader',
-    options: {
-      config: {
-        path: './postcss.config.js',
-      },
-    },
-  },
-];
 const plugins = [
   withSourceMaps,
   withImages,
@@ -36,21 +25,17 @@ const plugins = [
       },
     },
   ],
-  withCss({
-    cssModules: true,
-  }),
-];
+]
 
 module.exports = withPlugins([...plugins], {
   webpack: (config, { dev, isServer }) => {
-    const conf = config;
+    const conf = config
     conf.node = {
       fs: 'empty',
-    };
+    }
 
-    conf.module.rules.push(...rules);
-    conf.plugins.push(new webpack.EnvironmentPlugin(localEnv));
+    conf.plugins.push(new webpack.EnvironmentPlugin(localEnv))
 
-    return conf;
+    return conf
   },
-});
+})

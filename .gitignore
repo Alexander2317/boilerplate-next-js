@@ -1,6 +1,4 @@
 /node_modules
-/build
-/dist
 /.next
 .idea
 .DS_Store

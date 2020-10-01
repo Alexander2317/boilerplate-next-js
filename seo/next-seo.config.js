@@ -19,4 +19,4 @@ export default {
     ],
     site_name: 'SiteName',
   },
-};
+}

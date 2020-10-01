@@ -1,3 +1,3 @@
 /* eslint-disable import/prefer-default-export */
 
-export const TEST = 'TEST';
+export const TEST = 'TEST'

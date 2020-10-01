@@ -1,21 +1,22 @@
-import React from 'react';
-import Document, { Head, Main, NextScript } from 'next/document';
+import Document, { Html, Head, Main, NextScript } from 'next/document'
 
-export default class MyDocument extends Document {
+class MyDocument extends Document {
+  static async getInitialProps(ctx) {
+    const initialProps = await Document.getInitialProps(ctx)
+    return { ...initialProps }
+  }
+
   render() {
     return (
-      <html lang="en">
-        <Head>
-          <meta
-            name="viewport"
-            content="initial-scale=1, minimum-scale=1, width=device-width"
-          />
-        </Head>
+      <Html>
+        <Head />
         <body style={{ height: '100vh' }}>
           <Main />
           <NextScript />
         </body>
-      </html>
-    );
+      </Html>
+    )
   }
 }
+
+export default MyDocument

@@ -1,23 +1,9 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
-import Layout from 'components/Layout';
+import Layout from 'components/layout'
 
-class Home extends Component {
-  static propTypes = {
-    version: PropTypes.number,
-  };
+const Home = () => (
+  <Layout>
+    <div>hello</div>
+  </Layout>
+)
 
-  static defaultProps = {
-    version: 0,
-  };
-
-  render() {
-    const { version } = this.props;
-    return <Layout>Boilerplate {version}</Layout>;
-  }
-}
-
-export default connect(state => ({
-  version: state.test.version,
-}))(Home);
+export default Home
