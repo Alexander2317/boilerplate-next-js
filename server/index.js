@@ -6,10 +6,12 @@ import routes from '../routes'
 const app = next({ dev: process.env.NODE_ENV !== 'production' })
 const handler = routes.getRequestHandler(app)
 
-app.prepare().then(() => {
+const PORT = process.env.PORT || 3000
+
+app.prepare().then((pro) => {
   express()
     .use(express.static('static'))
     .use(compression())
     .use(handler)
-    .listen(3000)
+    .listen(PORT)
 })

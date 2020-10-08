@@ -28,13 +28,26 @@ const plugins = [
 ]
 
 module.exports = withPlugins([...plugins], {
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config) => {
     const conf = config
+    const originalEntry = config.entry
+
     conf.node = {
       fs: 'empty',
     }
 
     conf.plugins.push(new webpack.EnvironmentPlugin(localEnv))
+    conf.entry = async () => {
+      const entries = await originalEntry()
+      if (
+        entries['main.js'] &&
+        !entries['main.js'].includes('./polyfills/index.js')
+      ) {
+        entries['main.js'].unshift('./polyfills/index.js')
+      }
+
+      return entries
+    }
 
     return conf
   },

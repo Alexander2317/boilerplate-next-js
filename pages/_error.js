@@ -1,4 +1,6 @@
-const Error = ({ statusCode }) => <section>{statusCode ? 404 : 500}</section>
+const Error = ({ statusCode }) => (
+  <section>{statusCode ? '404' : '500'}</section>
+)
 
 Error.getInitialProps = ({ res, err }) => {
   if (!res) {
