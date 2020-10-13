@@ -32,4 +32,7 @@ const mapStateToProps = (state) => ({
 
 const mapDispatchToProps = { setVersion: actions.test.startTest }
 
-export default connect(mapStateToProps, mapDispatchToProps)(Home)
+export default (connect(
+  mapStateToProps,
+  mapDispatchToProps,
+)(Home): React.AbstractComponent<Props>)

@@ -1,9 +1,15 @@
 [ignore]
-.*/build
+.*/.next
 .*/node_modules
+.*/polyfills
+.*/public
+.*/seo
+.*/server
 
 [include]
-./src
+./pages
+./components
+./__data__
 
 [libs]
 
