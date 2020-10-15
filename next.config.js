@@ -4,6 +4,9 @@ const withSourceMaps = require('@zeit/next-source-maps')
 const withImages = require('next-images')
 const withPlugins = require('next-compose-plugins')
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
+const { nextI18NextRewrites } = require('next-i18next/rewrites')
+
+const localeSubpaths = {}
 
 const plugins = [
   withSourceMaps,
@@ -28,6 +31,10 @@ const plugins = [
 ]
 
 module.exports = withPlugins([...plugins], {
+  rewrites: async () => nextI18NextRewrites(localeSubpaths),
+  publicRuntimeConfig: {
+    localeSubpaths,
+  },
   webpack: (config) => {
     const conf = config
     const originalEntry = config.entry

@@ -5,12 +5,14 @@ import { createWrapper } from 'next-redux-wrapper'
 
 import rootSaga from '../sagas'
 import reducers from '../reducers'
+import { base } from '../constants'
 
 const makeStore = () => {
   const sagaMiddleware = createSagaMiddleware()
+  const composeEnhancers = composeWithDevTools({ name: base.NAME_PROJECT })
   const store = createStore(
     reducers,
-    composeWithDevTools(applyMiddleware(sagaMiddleware)),
+    composeEnhancers(applyMiddleware(sagaMiddleware)),
   )
 
   store.sagaTask = sagaMiddleware.run(rootSaga)

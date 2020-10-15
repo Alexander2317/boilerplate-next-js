@@ -12,11 +12,11 @@
 ./__data__
 
 [libs]
+./flow-typed
 
 [lints]
 
 [options]
-module.file_ext=.css
 module.file_ext=.js
 module.file_ext=.jsx
 
