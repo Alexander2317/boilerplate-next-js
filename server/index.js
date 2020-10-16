@@ -1,3 +1,5 @@
+// @flow
+
 import next from 'next'
 import express from 'express'
 import compression from 'compression'

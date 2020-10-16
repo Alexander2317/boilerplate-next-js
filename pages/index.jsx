@@ -7,8 +7,6 @@ import { withTranslation } from '../i18n'
 import { actions, selectors } from '../__data__'
 import { Layout } from '../components'
 
-import style from './index.module.css'
-
 type Props = {
   t: Function,
   version: string,

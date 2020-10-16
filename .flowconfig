@@ -4,7 +4,6 @@
 .*/polyfills
 .*/public
 .*/seo
-.*/server
 
 [include]
 ./pages
@@ -12,7 +11,6 @@
 ./__data__
 
 [libs]
-./flow-typed
 
 [lints]
 

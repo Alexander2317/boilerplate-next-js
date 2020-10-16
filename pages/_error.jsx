@@ -34,4 +34,6 @@ Error.defaultProps = {
   statusCode: null,
 }
 
-export default withTranslation('common')(Error)
+export default (withTranslation('common')(
+  Error,
+): React.AbstractComponent<Props>)
