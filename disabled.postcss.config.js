@@ -1,3 +1,5 @@
+// PostCSS will work after merge https://github.com/vercel/next.js/pull/17415
+
 module.exports = {
   plugins: [
     'postcss-import',
