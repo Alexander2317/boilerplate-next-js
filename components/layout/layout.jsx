@@ -1,8 +1,15 @@
-import Header from './header'
-import Footer from './footer'
+// @flow
+
+import * as React from 'react'
+
+import { Header, Footer } from './components'
 import style from './style.module.css'
 
-const Layout = ({ children }) => (
+type Props = {
+  children: React.Node,
+}
+
+const Layout = ({ children }: Props): React.Node => (
   <section className={style.wrapper}>
     <main className={style.content}>
       <Header />

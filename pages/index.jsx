@@ -2,10 +2,13 @@
 
 import * as React from 'react'
 import { connect } from 'react-redux'
+import { NextSeo } from 'next-seo'
 
 import { withTranslation } from '../i18n'
 import { actions, selectors } from '../__data__'
 import { Layout } from '../components'
+import { home } from '../seo/pages'
+import smile from '../public/static/img/smile.jpg'
 
 type Props = {
   t: Function,
@@ -13,23 +16,26 @@ type Props = {
   setVersion: Function,
 }
 
-const Home = ({ t, version, setVersion }: Props): React.Node => {
-  return (
+const Home = ({ t, version, setVersion }: Props): React.Node => (
+  <>
+    <NextSeo {...home} />
     <Layout>
       <div>
         {t('hello')} {version}
       </div>
+      <img src={smile} alt={t('img.alt')} />
+      <br />
       <button type="button" onClick={setVersion}>
-        update version
+        {t('button')}
       </button>
     </Layout>
-  )
-}
+  </>
+)
 
 Home.getInitialProps = async ({ store }) => {
   await store.dispatch(actions.test.startTest())
   return {
-    namespacesRequired: ['common'],
+    namespacesRequired: ['common', 'home'],
   }
 }
 
@@ -42,4 +48,4 @@ const mapDispatchToProps = { setVersion: actions.test.startTest }
 export default (connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withTranslation('common')(Home)): React.AbstractComponent<Props>)
+)(withTranslation(['common', 'home'])(Home)): React.AbstractComponent<Props>)

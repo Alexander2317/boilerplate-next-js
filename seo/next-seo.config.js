@@ -1,3 +1,5 @@
+// @flow
+
 export default {
   title: 'Title page',
   description: 'Description',

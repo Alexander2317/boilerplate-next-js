@@ -9,18 +9,3 @@
   font-size: 18px;
   text-align: center;
 }
-
-.footer {
-  flex: 0 0 auto;
-}
-
-.header,
-.footer {
-  font-size: 24px;
-  text-align: center;
-  font-weight: bold;
-}
-
-.header {
-  margin-bottom: 20px;
-}

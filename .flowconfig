@@ -2,8 +2,6 @@
 .*/.next
 .*/node_modules
 .*/polyfills
-.*/public
-.*/seo
 
 [include]
 ./pages
