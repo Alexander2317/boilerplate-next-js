@@ -1,3 +1,6 @@
 {
-  "title": "hello"
+  "title": "hello",
+  "error-with-status": "A {{statusCode}} error occurred on server",
+  "error-without-status": "An error occurred on the server",
+  "error-404-status": "404 - Page Not Found"
 }

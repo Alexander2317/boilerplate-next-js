@@ -5,6 +5,8 @@ import { connect } from 'react-redux'
 
 import { withTranslation } from '../i18n'
 import { actions, selectors } from '../__data__'
+import { Layout } from '../components'
+
 import style from './index.module.css'
 
 type Props = {
@@ -15,14 +17,14 @@ type Props = {
 
 const Home = ({ t, version, setVersion }: Props): React.Node => {
   return (
-    <div className={style.container}>
+    <Layout>
       <div>
         {t('hello')} {version}
       </div>
       <button type="button" onClick={setVersion}>
         update version
       </button>
-    </div>
+    </Layout>
   )
 }
 
