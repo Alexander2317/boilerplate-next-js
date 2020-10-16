@@ -1,21 +1,13 @@
-const webpack = require('webpack');
-const { parsed: localEnv } = require('dotenv').config();
-const withSourceMaps = require('@zeit/next-source-maps');
-const withImages = require('next-images');
-const withPlugins = require('next-compose-plugins');
-const withCss = require('@zeit/next-css');
-const withBundleAnalyzer = require('@zeit/next-bundle-analyzer');
+const webpack = require('webpack')
+const { parsed: localEnv } = require('dotenv').config()
+const withSourceMaps = require('@zeit/next-source-maps')
+const withImages = require('next-images')
+const withPlugins = require('next-compose-plugins')
+const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
+const { nextI18NextRewrites } = require('next-i18next/rewrites')
 
-const rules = [
-  {
-    loader: 'postcss-loader',
-    options: {
-      config: {
-        path: './postcss.config.js',
-      },
-    },
-  },
-];
+const localeSubpaths = {}
+
 const plugins = [
   withSourceMaps,
   withImages,
@@ -36,21 +28,34 @@ const plugins = [
       },
     },
   ],
-  withCss({
-    cssModules: true,
-  }),
-];
+]
 
 module.exports = withPlugins([...plugins], {
-  webpack: (config, { dev, isServer }) => {
-    const conf = config;
+  rewrites: async () => nextI18NextRewrites(localeSubpaths),
+  publicRuntimeConfig: {
+    localeSubpaths,
+  },
+  webpack: (config) => {
+    const conf = config
+    const originalEntry = config.entry
+
     conf.node = {
       fs: 'empty',
-    };
+    }
 
-    conf.module.rules.push(...rules);
-    conf.plugins.push(new webpack.EnvironmentPlugin(localEnv));
+    conf.plugins.push(new webpack.EnvironmentPlugin(localEnv))
+    conf.entry = async () => {
+      const entries = await originalEntry()
+      if (
+        entries['main.js'] &&
+        !entries['main.js'].includes('./polyfills/index.js')
+      ) {
+        entries['main.js'].unshift('./polyfills/index.js')
+      }
 
-    return conf;
+      return entries
+    }
+
+    return conf
   },
-});
+})

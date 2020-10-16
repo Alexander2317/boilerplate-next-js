@@ -1,9 +1,20 @@
 module.exports = {
   extends: 'stylelint-config-standard',
-
   plugins: ['stylelint-order'],
-
   rules: {
+    'at-rule-no-unknown': [
+      true,
+      {
+        ignoreAtRules: [
+          'function',
+          'if',
+          'each',
+          'include',
+          'mixin',
+          'define-mixin',
+        ],
+      },
+    ],
     'property-no-unknown': [
       true,
       {
@@ -27,4 +38,4 @@ module.exports = {
     ],
     'order/properties-order': [],
   },
-};
+}
