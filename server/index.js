@@ -6,7 +6,8 @@ import compression from 'compression'
 
 import routes from '../routes'
 
-const app = next({ dev: process.env.NODE_ENV !== 'production' })
+const isDev = process.env.NODE_ENV !== 'production'
+const app = next({ dev: isDev })
 const handler = routes.getRequestHandler(app)
 
 const PORT = process.env.PORT || 3000
@@ -16,5 +17,12 @@ app.prepare().then(() => {
     .use(express.static('static'))
     .use(compression())
     .use(handler)
-    .listen(PORT)
+    .listen(PORT, (error) => {
+      if (error) {
+        return throw error
+      }
+      return console.info(
+        `> Project ready${isDev ? ` on http://localhost:${PORT}` : ''}`,
+      )
+    })
 })

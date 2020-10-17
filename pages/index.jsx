@@ -1,33 +1,41 @@
 // @flow
 
 import * as React from 'react'
+import Head from 'next/head'
 import { connect } from 'react-redux'
-import { NextSeo } from 'next-seo'
 
 import { withTranslation } from '../i18n'
-import { actions, selectors } from '../__data__'
-import { Layout } from '../components'
-import { home } from '../seo/pages'
-import smile from '../public/static/img/smile.jpg'
+import { actions, selectors, constants } from '../__data__'
+import { Layout, Link } from '../components'
+import smile from '../public/static/img/smile.png'
+
+import style from './index.module.css'
 
 type Props = {
   t: Function,
-  version: string,
-  setVersion: Function,
+  count: string,
+  startTestAction: Function,
 }
 
-const Home = ({ t, version, setVersion }: Props): React.Node => (
+const Home = ({ t, count, startTestAction }: Props): React.Node => (
   <>
-    <NextSeo {...home} />
+    <Head>
+      <title>{t('home:meta-title')}</title>
+      {/* <BaseMetaTags title={t('home:meta-title')} /> */}
+    </Head>
     <Layout>
-      <div>
-        {t('hello')} {version}
+      <div className={style.title}>
+        {t('home:title')} {count}
       </div>
-      <img src={smile} alt={t('img.alt')} />
+      <img src={smile} alt={t('home:img-alt')} />
       <br />
-      <button type="button" onClick={setVersion}>
-        {t('button')}
+      <button className={style.button} type="button" onClick={startTestAction}>
+        {t('home:button')}
       </button>
+      <br /> <br />
+      <Link route={`${constants.routes.base}${constants.routes.post}`}>
+        {t('home:link')}
+      </Link>
     </Layout>
   </>
 )
@@ -35,17 +43,17 @@ const Home = ({ t, version, setVersion }: Props): React.Node => (
 Home.getInitialProps = async ({ store }) => {
   await store.dispatch(actions.test.startTest())
   return {
-    namespacesRequired: ['common', 'home'],
+    namespacesRequired: ['home', 'header', 'footer'],
   }
 }
 
 const mapStateToProps = (state) => ({
-  version: selectors.getTestVersion(state),
+  count: selectors.getTestCount(state),
 })
 
-const mapDispatchToProps = { setVersion: actions.test.startTest }
+const mapDispatchToProps = { startTestAction: actions.test.startTest }
 
 export default (connect(
   mapStateToProps,
   mapDispatchToProps,
-)(withTranslation(['common', 'home'])(Home)): React.AbstractComponent<Props>)
+)(withTranslation('home')(Home)): React.AbstractComponent<Props>)

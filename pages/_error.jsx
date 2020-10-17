@@ -1,21 +1,34 @@
 // @flow
 
 import * as React from 'react'
+import Head from 'next/head'
 
 import { withTranslation } from '../i18n'
+import { Layout } from '../components'
+
+import style from './_error.module.css'
 
 type Props = {
   statusCode?: any,
   t: Function,
 }
 
-const Error = ({ statusCode, t }: Props): React.Node => (
-  <p>
-    {statusCode
-      ? t('error-with-status', { statusCode })
-      : t('error-without-status')}
-  </p>
-)
+const Error = ({ statusCode, t }: Props): React.Node => {
+  const message = statusCode
+    ? t('error-with-status', { statusCode })
+    : t('error-without-status')
+  return (
+    <>
+      <Head>
+        <title>{message}</title>
+        {/* <BaseMetaTags title={message} /> */}
+      </Head>
+      <Layout>
+        <p style={style.title}>{message}</p>
+      </Layout>
+    </>
+  )
+}
 
 Error.getInitialProps = async ({ res, err }) => {
   let statusCode = null
@@ -26,7 +39,7 @@ Error.getInitialProps = async ({ res, err }) => {
   }
   return {
     statusCode,
-    namespacesRequired: ['common'],
+    namespacesRequired: ['common', 'header', 'footer'],
   }
 }
 

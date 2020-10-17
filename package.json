@@ -43,7 +43,6 @@
     "next-redux-saga": "^5.0.0-0",
     "next-redux-wrapper": "^6.0.2",
     "next-routes": "^1.4.2",
-    "next-seo": "^4.13.0",
     "normalize.css": "^8.0.1",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
@@ -56,6 +55,7 @@
   },
   "devDependencies": {
     "@babel/node": "^7.12.1",
+    "@babel/plugin-proposal-throw-expressions": "^7.12.1",
     "@babel/plugin-transform-flow-strip-types": "^7.12.1",
     "@babel/polyfill": "^7.12.1",
     "@babel/preset-flow": "^7.12.1",

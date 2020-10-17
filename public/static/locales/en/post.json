@@ -1,0 +1,5 @@
+{
+  "meta-title": "Post {{id}}",
+  "title": "It's some post {{id}}",
+  "link": "Go to home"
+}

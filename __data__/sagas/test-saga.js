@@ -1,12 +1,12 @@
 import { put, takeEvery, select } from 'redux-saga/effects'
 import { actionTypes } from '../constants'
-import { getTestVersion } from '../selectors'
+import { getTestCount } from '../selectors'
 
 export function* init() {
-  const version = yield select(getTestVersion)
+  const count = yield select(getTestCount)
   yield put({
     type: actionTypes.TEST,
-    payload: { version: version + 1 },
+    payload: { count: count + 1 },
   })
 }
 

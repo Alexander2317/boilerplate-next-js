@@ -1,19 +1,7 @@
 * {
   margin: 0;
   padding: 0;
-}
-
-::-webkit-scrollbar {
-  width: 5px;
-}
-
-::-webkit-scrollbar-track {
-  background: transparent;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #ccc;
-  border-radius: 4px;
+  box-sizing: border-box;
 }
 
 html,
@@ -24,11 +12,9 @@ body {
 body {
   font-family: Arial, sans-serif;
   font-weight: 400;
+  background: #121212;
 }
 
 #__next {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  font-family: 'Open Sans', sans-serif;
+  min-height: 100vh;
 }

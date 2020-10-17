@@ -1,5 +1,25 @@
-.container {
-  max-width: 600px;
-  width: 100%;
-  margin: auto;
+.title {
+  color: #fff;
+}
+
+.button {
+  min-width: 64px;
+  padding: 5px 15px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.23);
+  outline: none;
+  background: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 0.875rem;
+  line-height: 1.75;
+  letter-spacing: 0.02857em;
+  text-transform: uppercase;
+  transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  cursor: pointer;
+}
+
+.button:hover {
+  text-decoration: none;
+  background-color: rgba(255, 255, 255, 0.08);
 }

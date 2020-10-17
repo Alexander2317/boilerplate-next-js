@@ -1,5 +1,7 @@
 {
+  "meta-title": "Next.js skeleton",
   "title": "Hello",
-  "button": "Update version",
-  "img.alt": "Smile"
+  "button": "Update number",
+  "img-alt": "Smile",
+  "link": "Go to posts"
 }
