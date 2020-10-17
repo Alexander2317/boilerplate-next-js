@@ -63,5 +63,6 @@ Project has problems with postcss and meta tags because of next.js updated with 
 The following pull requests were made:
 <br>
 - [ ] wait for it to merge https://github.com/vercel/next.js/pull/17770 (Meta tags bug)
+<br>
 - [ ] wait for it to merge https://github.com/vercel/next.js/pull/17415 (PostCSS bug)
 
