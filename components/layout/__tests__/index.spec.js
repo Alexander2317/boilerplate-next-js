@@ -1,4 +1,4 @@
-import Footer from '../footer'
+import { Footer } from '../components'
 
 describe('<Footer />', () => {
   it('should be defined', () => {

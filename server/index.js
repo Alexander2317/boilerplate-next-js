@@ -17,12 +17,9 @@ app.prepare().then(() => {
     .use(express.static('static'))
     .use(compression())
     .use(handler)
-    .listen(PORT, (error) => {
-      if (error) {
-        return throw error
-      }
-      return console.info(
+    .listen(PORT, () =>
+      console.info(
         `> Project ready${isDev ? ` on http://localhost:${PORT}` : ''}`,
-      )
-    })
+      ),
+    )
 })
