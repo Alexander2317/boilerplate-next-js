@@ -59,7 +59,9 @@ Main libraries
 
 <h2>Caveats</h2>
 Project has problems with postcss and meta tags because of next.js updated with bugs.
-<br>The following pull requests were made:
+<br>
+The following pull requests were made:
+<br>
 - [ ] wait for it to merge https://github.com/vercel/next.js/pull/17770 (Meta tags bug)
 - [ ] wait for it to merge https://github.com/vercel/next.js/pull/17415 (PostCSS bug)
 
