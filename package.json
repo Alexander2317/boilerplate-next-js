@@ -86,7 +86,7 @@
     "husky": "^4.3.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.5.3",
-    "lint-staged": "^10.4.1",
+    "lint-staged": "^10.4.2",
     "pleeease-filters": "^4.0.0",
     "postcss": "^8.1.1",
     "postcss-calc": "^7.0.5",
