@@ -1,25 +1,27 @@
+@import '../public/static/css/variables.css';
+
 .title {
-  color: #fff;
+  color: var(--white);
 }
 
 .button {
   min-width: 64px;
   padding: 5px 15px;
   border-radius: 4px;
-  border: 1px solid rgba(255, 255, 255, 0.23);
+  border: 1px solid var(--gray);
   outline: none;
   background: none;
-  color: #fff;
+  color: var(--white);
   font-weight: bold;
-  font-size: 0.875rem;
+  font-size: $sizeSm;
   line-height: 1.75;
   letter-spacing: 0.02857em;
   text-transform: uppercase;
   transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, box-shadow 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms, border 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   cursor: pointer;
-}
 
-.button:hover {
-  text-decoration: none;
-  background-color: rgba(255, 255, 255, 0.08);
+  &:hover {
+    text-decoration: none;
+    background-color: rgba(255, 255, 255, 0.08);
+  }
 }

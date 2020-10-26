@@ -17,6 +17,7 @@ module.exports = {
     'postcss-flexbugs-fixes',
     'postcss-simple-vars',
     'postcss-mixins',
+    'postcss-css-variables',
     [
       'postcss-preset-env',
       {

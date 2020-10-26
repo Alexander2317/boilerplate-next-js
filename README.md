@@ -64,5 +64,8 @@ The following pull requests were made:
 <br>
 1. wait for it to merge https://github.com/vercel/next.js/pull/17770 (Meta tags bug)
 <br>
-2. wait for it to merge https://github.com/vercel/next.js/pull/17415 (PostCSS bug)
-
+2. <strike>wait for it to merge https://github.com/vercel/next.js/pull/17415 (PostCSS bug)</strike> (available from 9.5.6-canary.11)
+<br>
+3. next-i18next warning on 404 page https://github.com/isaachinman/next-i18next/issues/79#issuecomment-710763049
+<br>
+4. don't send initialState to ```createStore(reducer, **initialState**, enhancers)```. It makes a warning https://github.com/kirill-konshin/next-redux-wrapper/issues/202#issuecomment-705737929
