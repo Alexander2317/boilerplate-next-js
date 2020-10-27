@@ -68,4 +68,4 @@ The following pull requests were made:
 <br>
 3. next-i18next warning on 404 page https://github.com/isaachinman/next-i18next/issues/79#issuecomment-710763049
 <br>
-4. don't insert initialState to ```createStore(reducer, **initialState**, enhancers)```. It makes a warning https://github.com/kirill-konshin/next-redux-wrapper/issues/202#issuecomment-705737929
+4. don't insert initialState to <code>createStore(reducer, **initialState**, enhancers)</code>. It makes a warning https://github.com/kirill-konshin/next-redux-wrapper/issues/202#issuecomment-705737929
