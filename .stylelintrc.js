@@ -43,5 +43,6 @@ module.exports = {
     'node_modules/**/*.*',
     '.next/**/*.*',
     'flow-typed**/*.*',
+    'coverage/**/*.*',
   ],
 }

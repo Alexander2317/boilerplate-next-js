@@ -1,1 +1,12 @@
-
+node_modules
+.next
+.idea
+.DS_Store
+.env
+yarn.lock
+package-lock.json
+debug.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+coverage
