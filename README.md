@@ -52,7 +52,6 @@ Main libraries
 - prettier
 - eslint
 - stylelint
-- Webpack 5
 - Jest
 - Enzyme
 - Docker
