@@ -127,7 +127,7 @@
     "fix:css": "yarn lint:css --fix",
     "fix": "yarn fix:js && yarn fix:css",
     "test": "jest --no-cache --passWithNoTests",
-    "test:coverage": "jest --no-cache --coverage --passWithNoTests",
+    "test:report": "jest --no-cache --coverage --passWithNoTests",
     "flow": "flow",
     "build": "next build",
     "build:analyze": "cross-env BUNDLE_ANALYZE=both yarn build",

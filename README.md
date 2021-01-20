@@ -25,6 +25,8 @@ fix - base command wich combine fix:js and fix:css
 flow - check correct types via flow
 dev - command to start development server
 start - command to start production server
+test - run all unit tests
+test:report - generate report about tests
 build - build project
 build:analyze - analyze your bundel project
 build:docker - build docker bundle
