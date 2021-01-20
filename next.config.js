@@ -1,4 +1,3 @@
-const webpack = require('webpack')
 const { parsed: localEnv } = require('dotenv').config()
 const withSourceMaps = require('@zeit/next-source-maps')
 const withImages = require('next-images')
@@ -42,8 +41,6 @@ module.exports = withPlugins([...plugins], {
     conf.node = {
       fs: 'empty',
     }
-
-    conf.plugins.push(new webpack.EnvironmentPlugin(localEnv))
     conf.entry = async () => {
       const entries = await originalEntry()
       if (
@@ -58,4 +55,5 @@ module.exports = withPlugins([...plugins], {
 
     return conf
   },
+  env: localEnv,
 })
